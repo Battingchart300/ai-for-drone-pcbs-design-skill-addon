@@ -1,0 +1,38 @@
+name: fpv-addon-ci
+
+# Runs the FPV addon validators on both example specs and the
+# pytest suite, on Python 3.10-3.13. The base skill is cloned
+# because this addon does not work without it (see SKILL.md §0).
+# Python 3.9 is NOT in the matrix: it is EOL since Oct 2025 and
+# setup-python has no 3.9 for ubuntu-latest (Ubuntu 26.04), so
+# every run would fail before any check ran.
+on: [push, pull_request]
+
+jobs:
+  kit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Clone base skill (required)
+        run: git clone --depth 1 https://github.com/Battingchart300/ai-pcb-design-skill.git ../ai-pcb-design-skill
+      - name: Run addon validators on both examples
+        run: |
+          python scripts/run_all.py --spec examples/spec_5inch_freestyle.json
+          python scripts/run_all.py --spec examples/spec_hexacopter_inspection.json
+      - name: Run pytest suite
+        run: |
+          pip install pytest
+          python -m pytest -q
+      - name: require_base must fail without the base skill
+        run: |
+          if python scripts/require_base.py --base-skill /tmp/no-such-base; then
+            echo "FAIL: missing base skill was accepted"
+            exit 1
+          fi
+          echo "OK: missing base skill rejected (exit 2 as expected)"
