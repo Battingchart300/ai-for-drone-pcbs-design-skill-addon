@@ -1,0 +1,16 @@
+{
+  "addon": "ai-fpv-drone-pcbs-design-skill-addon",
+  "version": "0.0.1",
+  "examples": {
+    "spec_5inch_freestyle.json": {
+      "exit_code": 0,
+      "verdict": "PASS",
+      "seconds": 0.36
+    },
+    "spec_hexacopter_inspection.json": {
+      "exit_code": 0,
+      "verdict": "PASS",
+      "seconds": 0.378
+    }
+  }
+}
