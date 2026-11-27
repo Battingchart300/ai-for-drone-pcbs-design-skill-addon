@@ -1,0 +1,202 @@
+{
+  "battery": {
+    "c_rating": 100,
+    "capacity_mah": 1300,
+    "cells": 6,
+    "type": "LiPo"
+  },
+  "bms": {
+    "present": false
+  },
+  "camera": {
+    "sensor": "RunCam Phoenix 2",
+    "type": "analog"
+  },
+  "compliance": {
+    "class_mark": null,
+    "max_altitude_m": 120,
+    "operator_registered": true,
+    "region": "EU",
+    "regulation": "2019/947",
+    "remote_id": false
+  },
+  "connectors": [
+    {
+      "mating": "battery",
+      "max_current_a": 60,
+      "name": "BAT",
+      "type": "XT60"
+    },
+    {
+      "mating": "gps",
+      "max_current_a": 1,
+      "name": "GPS",
+      "type": "JST-GH"
+    }
+  ],
+  "drone": {
+    "category": "open-A3",
+    "class": "freestyle-5inch",
+    "frame_size_in": 5,
+    "mtom_g": 780,
+    "name": "Freestyle 5in (6S)"
+  },
+  "esc": {
+    "burst_current_a": 55,
+    "continuous_current_a": 45,
+    "firmware": "BLHeli_32",
+    "protocol": "DShot600",
+    "type": "4in1",
+    "voltage_max_v": 25.2
+  },
+  "flight_controller": {
+    "barometer": "BMP388",
+    "firmware": "Betaflight",
+    "firmware_version": "4.5.0",
+    "gyro_loop_hz": 8000,
+    "imu": "BMI270",
+    "mcu": "STM32F722",
+    "stack": "separate"
+  },
+  "gps": {
+    "baud": 115200,
+    "module": "u-blox M10",
+    "protocol": "UBX"
+  },
+  "motors": [
+    {
+      "kv": 4000,
+      "max_current_a": 30,
+      "ref": "M1",
+      "size": "2207"
+    },
+    {
+      "kv": 1950,
+      "max_current_a": 30,
+      "ref": "M2",
+      "size": "2207"
+    },
+    {
+      "kv": 1950,
+      "max_current_a": 30,
+      "ref": "M3",
+      "size": "2207"
+    },
+    {
+      "kv": 1950,
+      "max_current_a": 30,
+      "ref": "M4",
+      "size": "2207"
+    }
+  ],
+  "pdb": {
+    "integrated": true,
+    "max_current_a": 150
+  },
+  "power_domains": [
+    {
+      "consumers": [
+        {
+          "current_a": 30,
+          "ref": "M1"
+        },
+        {
+          "current_a": 30,
+          "ref": "M2"
+        },
+        {
+          "current_a": 30,
+          "ref": "M3"
+        },
+        {
+          "current_a": 30,
+          "ref": "M4"
+        },
+        {
+          "current_a": 0.3,
+          "ref": "VTX1"
+        }
+      ],
+      "max_current_a": 130,
+      "name": "VBAT",
+      "voltage_v": 22.2
+    },
+    {
+      "consumers": [
+        {
+          "current_a": 0.5,
+          "ref": "FC1"
+        },
+        {
+          "current_a": 0.1,
+          "ref": "GPS1"
+        },
+        {
+          "current_a": 0.25,
+          "ref": "CAM1"
+        },
+        {
+          "current_a": 0.15,
+          "ref": "RX1"
+        }
+      ],
+      "max_current_a": 3,
+      "name": "5V",
+      "voltage_v": 5
+    }
+  ],
+  "sensors": [
+    {
+      "bus": "I2C",
+      "part": "BMP388",
+      "type": "barometer"
+    },
+    {
+      "bus": "I2C",
+      "part": "QMC5883L",
+      "type": "magnetometer"
+    }
+  ],
+  "telemetry": {
+    "link": "ELRS 2.4GHz",
+    "protocol": "CRSF"
+  },
+  "thermal": {
+    "ambient_c": 25,
+    "components": [
+      {
+        "cooling": "none",
+        "max_temp_c": 85,
+        "power_w": 1.5,
+        "ref": "FC1",
+        "theta_ja_c_per_w": 10
+      },
+      {
+        "cooling": "heatsink-airflow",
+        "max_temp_c": 85,
+        "power_w": 8,
+        "ref": "ESC1",
+        "theta_ja_c_per_w": 6
+      },
+      {
+        "cooling": "heatsink-airflow",
+        "max_temp_c": 85,
+        "power_w": 5,
+        "ref": "VTX1",
+        "theta_ja_c_per_w": 8
+      }
+    ]
+  },
+  "vrx": {
+    "band": "5.8GHz",
+    "protocol": "analog",
+    "type": "analog"
+  },
+  "vtx": {
+    "band": "5.8GHz",
+    "power_draw_w": 5,
+    "power_mw": 800,
+    "protocol": "analog",
+    "type": "analog"
+  }
+}
