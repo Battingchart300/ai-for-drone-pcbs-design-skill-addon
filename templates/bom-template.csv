@@ -1,0 +1,4 @@
+Ref,Value,Footprint,MPN,Qty,Notes
+FC1,Flight Controller,30.5x30.5,UNVERIFIED,1,Replace UNVERIFIED with the verified MPN before ordering — UNVERIFIED fails bom validation
+ESC1,4-in-1 ESC 45A,30.5x30.5,UNVERIFIED,1,Replace UNVERIFIED with the verified MPN before ordering
+M1,2207 1950KV motor,,UNVERIFIED,4,Replace UNVERIFIED with the verified MPN before ordering
